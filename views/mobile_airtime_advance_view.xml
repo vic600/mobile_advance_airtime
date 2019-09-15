@@ -1,15 +1,12 @@
 <openerp>
 		<data>
-
-
-
 		<record id="mobile_airtime_action" model="ir.actions.act_window">
 				<field name="name">Airtime Advance Request</field>
 				<field name="res_model">mobile.airtime</field>
 				<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem id="ke_menu_advance" parent="hr.menu_hr_root" name="Airtime Advance" sequence="25"/>
-		<menuitem id="ke_menu_advance_request" parent="ke_menu_advance" name="Airtime Advance Request" action="ke_advance_action"/>
+		<menuitem id="mobile_menu_advance" parent="hr.menu_hr_root" name="Airtime Advance" sequence="25"/>
+		<menuitem id="mobile_menu_advance_request" parent="ke_menu_advance" name="Airtime Advance Request" action="mobile_airtime_action"/>
 <!-- advance  Form view-->
 		<record id="mobile_airtime_form" model="ir.ui.view">
 				<field name="name">mobile.airtime.form</field>
