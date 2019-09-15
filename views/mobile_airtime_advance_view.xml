@@ -30,7 +30,7 @@
 														<field name="name"/>
 														<field name="employee_id"/>
 														<!-- <field name="date_added"/> -->
-														<field name="date_to"/>
+														<!-- <field name="date_to"/> -->
 														<field name="amount"/>
 														<field name="state" readonly="1"/>
 														<field name="currency_id" invisible="1"/>
@@ -100,7 +100,7 @@
 												</group>
 												<group>
 														<!-- <field name="date_added" options="{'no_quick_create':True, 'no_open': True}"/> -->
-														      <field name="date_to"/>
+														      <!-- <field name="date_to"/> -->
 												</group>
 										</group>
 										<group>
