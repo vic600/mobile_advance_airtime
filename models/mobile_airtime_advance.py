@@ -6,7 +6,7 @@ from odoo.exceptions import ValidationError
 LOGGER = logging.getLogger(__name__)
 
 class MobileAirtimeAdvance(models.Model):
-    _name = 'mobile.airtime' 
+    _name = 'mobile.airtime.run' 
     -description = "Mobile Airtime Advance"
     -inherit=["mail.thread"]
     -order="id desc"

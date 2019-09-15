@@ -2,30 +2,10 @@
 		<data>
 
 
-		<!-- <record id="ke_advance_batches_tree" model="ir.ui.view">
-				<field name="name">ke.advance.batches.tree</field>
-				<field name="model">ke.advance.run</field>
-				<field name="arch" type="xml">
-						<tree colors="blue: state == 'draft'; black: state == 'close';">
-								<field name="name"/>
-								<field name="date_start"/>
-								<field name="date_end"/>
-								<field name="state"/>
-						</tree>
-				</field>
-		</record> -->
-		<!-- salary advance batches Action-->
-		<!-- <record id="ke_advance_batches_action" model="ir.actions.act_window">
-				<field name="name">Mobile Advance</field>
-				<field name="res_model">ke.advance.run</field>
-				<field name="view_mode">tree,form</field>
-		</record>
-		<menuitem id="ke_menu_advance_batches" parent="hr.menu_hr_root" name="Salary Advance Batches"/>
-		<menuitem id="ke_menu_advance_request_batches" parent="ke_menu_advance_batches" name="Salary Advance Batches" action="ke_advance_batches_action"/> -->
-		<!-- salary advance Action-->
+
 		<record id="mobile_airtime_action" model="ir.actions.act_window">
 				<field name="name">Airtime Advance Request</field>
-				<field name="res_model">mobile.airtime</field>
+				<field name="res_model">mobile.airtime.run</field>
 				<field name="view_mode">tree,form</field>
 		</record>
 		<menuitem id="ke_menu_advance" parent="hr.menu_hr_root" name="Airtime Advance" sequence="25"/>
@@ -33,7 +13,7 @@
 <!-- advance  Form view-->
 		<record id="mobile_airtime_form" model="ir.ui.view">
 				<field name="name">mobile.airtime.form</field>
-				<field name="model">mobile.airtime</field>
+				<field name="model">mobile.airtime.run</field>
 				<field name="arch" type="xml">
 						<form>
 								<header>
@@ -80,7 +60,7 @@
 <!-- Advance Tree view-->
 		<record id="mobile_airtime_tree" model="ir.ui.view">
 				<field name="name">mobile.airtime.tree</field>
-				<field name="model">mobile.airtime</field>
+				<field name="model">mobile.airtime.run</field>
 				<field name="arch" type="xml">
 						<tree colors="blue: state == 'draft'; black: state == 'approval'; red: state == 'disapproved'">
 								<field name="name"/>
