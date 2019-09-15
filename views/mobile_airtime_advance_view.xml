@@ -24,12 +24,13 @@
 														<field name="date_start" class="oe_inline"/> - <field name="date_end" class="oe_inline"/>
 												</div>
 										</group>
-										<separator string="Employees Salary Advances"/>
+										<separator string="Employees Mobile Advances"/>
 										<field name="advance_ids">
 												<tree editable="bottom">
 														<field name="name"/>
 														<field name="employee_id"/>
-														<field name="date_added"/>
+														<!-- <field name="date_added"/> -->
+														<field name="date_to"/>
 														<field name="amount"/>
 														<field name="state" readonly="1"/>
 														<field name="currency_id" invisible="1"/>
@@ -98,8 +99,8 @@
 														<!--        <field name="dept_id"/> -->
 												</group>
 												<group>
-														<field name="date_added" options="{'no_quick_create':True, 'no_open': True}"/>
-														<!--       <field name="date_to"/> -->
+														<!-- <field name="date_added" options="{'no_quick_create':True, 'no_open': True}"/> -->
+														      <field name="date_to"/>
 												</group>
 										</group>
 										<group>
@@ -107,7 +108,7 @@
 												<field name="currency_id" invisible="1"/>
 										</group>
 										<notebook>
-												<page string="Reasons For Salary Advance">
+												<page string="Reasons For Mobile Advance">
 														<field name="description"/>
 												</page>
 										</notebook>
