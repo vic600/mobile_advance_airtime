@@ -5,14 +5,12 @@ from odoo import fields, models,api
 from odoo.exceptions import ValidationError
 LOGGER = logging.getLogger(__name__)
 
-class KeSalaryAdvance(models.Model):
-    """ Salary Advance request model"""
-    _name = "ke.advance"
-    _description = "Salary Advance Request"
-    _inherit = ["mail.thread"]
-    _order = "id desc"
-
-    @api.multi
+class MobileAirtimeAdvance(models.Model):
+    _name = 'mobile.airtime' 
+    -description = "Mobile Airtime Advance"
+    -inherit=["mail.thread"]
+    -order="id desc"
+     @api.multi
     def _employee_get(self):
         return self.employee_id.search(
             [('user_id', '=', self.env.user.id)], limit=1).id
@@ -37,7 +35,8 @@ class KeSalaryAdvance(models.Model):
         'Department',
         track_visibility='always',
         related='employee_id.department_id')
-    employee_id = fields.Many2one(
+
+       employee_id = fields.Many2one(
         'hr.employee',
         'Employee Name',
         default=_employee_get,
@@ -76,15 +75,12 @@ class KeSalaryAdvance(models.Model):
             'draft': [
                 ('readonly',
                  False)]}, track_visibility='onchange')
-  
-    same_user = fields.Boolean(compute='check_login_user')
+date_added = fields.Datetime('Date Requested',) 
+ same_user = fields.Boolean(compute='check_login_user')
 
     currency_id = fields.Many2one(
         related='employee_id.company_id.currency_id',
         track_visibility='onchange')
-    advance_run_id = fields.Many2one(
-        'ke.advance.run', 'Salary Advance Batch', readonly=True, states={
-            'draft': [
-                ('readonly', False)]}, track_visibility='onchange')
+
 
 
