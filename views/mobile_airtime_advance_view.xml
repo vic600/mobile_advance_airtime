@@ -2,7 +2,7 @@
 		<data>
 		<record id="mobile_airtime_action" model="ir.actions.act_window">
 				<field name="name">Airtime Advance Request</field>
-				<field name="res_model">mobile</field>
+				<field name="res_model">ke.advance.run</field>
 				<field name="view_mode">tree,form</field>
 		</record>
 		<menuitem id="mobile_menu_advance" parent="hr.menu_hr_root" name="Airtime Advance" sequence="25"/>
