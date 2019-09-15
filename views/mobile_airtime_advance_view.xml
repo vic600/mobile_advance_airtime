@@ -5,7 +5,7 @@
 
 		<record id="mobile_airtime_action" model="ir.actions.act_window">
 				<field name="name">Airtime Advance Request</field>
-				<field name="res_model">mobile.airtime.run</field>
+				<field name="res_model">mobile.airtime</field>
 				<field name="view_mode">tree,form</field>
 		</record>
 		<menuitem id="ke_menu_advance" parent="hr.menu_hr_root" name="Airtime Advance" sequence="25"/>
@@ -13,7 +13,7 @@
 <!-- advance  Form view-->
 		<record id="mobile_airtime_form" model="ir.ui.view">
 				<field name="name">mobile.airtime.form</field>
-				<field name="model">mobile.airtime.run</field>
+				<field name="model">mobile.airtime</field>
 				<field name="arch" type="xml">
 						<form>
 								<header>
@@ -60,7 +60,7 @@
 <!-- Advance Tree view-->
 		<record id="mobile_airtime_tree" model="ir.ui.view">
 				<field name="name">mobile.airtime.tree</field>
-				<field name="model">mobile.airtime.run</field>
+				<field name="model">mobile.airtime</field>
 				<field name="arch" type="xml">
 						<tree colors="blue: state == 'draft'; black: state == 'approval'; red: state == 'disapproved'">
 								<field name="name"/>

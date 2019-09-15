@@ -6,7 +6,7 @@ from odoo.exceptions import ValidationError
 LOGGER = logging.getLogger(__name__)
 
 class MobileAirtimeAdvance(models.Model):
-    _name = 'mobile.airtime.run' 
+    _name = 'mobile.airtime' 
     -description = "Mobile Airtime Advance"
     -inherit=["mail.thread"]
     -order="id desc"
@@ -75,7 +75,7 @@ class MobileAirtimeAdvance(models.Model):
             'draft': [
                 ('readonly',
                  False)]}, track_visibility='onchange')
-date_added = fields.Datetime('Date Requested',default=lambda self: fields.Datetime.now(),) 
+date_added = fields.Datetime('Date Requested',) 
  same_user = fields.Boolean(compute='check_login_user')
 
     currency_id = fields.Many2one(
