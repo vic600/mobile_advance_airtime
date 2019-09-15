@@ -1,0 +1,140 @@
+<openerp>
+		<data>
+
+<!-- Advance Batches Form view-->
+		<record id="ke_advance_batches_form" model="ir.ui.view">
+				<field name="name">ke.advance.run.form</field>
+				<field name="model">ke.advance.run</field>
+				<field name="arch" type="xml">
+						<form string="Payslips Batches">
+								<header>
+										<button name="close_advance_run" type="object" string="Close" states="draft" class="oe_highlight"/>
+										<button name="advance_batch_approval" type="object" string="Send For Approval" states="draft" class="oe_highlight"/>
+										<button string="Set to Draft" name="draft_advance_run" type="object" states="close" />
+										<field name="state" widget="statusbar"/>
+								</header>
+								<sheet>
+										<label for="name" class="oe_edit_only"/>
+										<h1>
+												<field name="name"/>
+										</h1>
+										<group col="2">
+												<label for="date_start" string="Period"/>
+												<div>
+														<field name="date_start" class="oe_inline"/> - <field name="date_end" class="oe_inline"/>
+												</div>
+										</group>
+										<separator string="Employees Salary Advances"/>
+										<field name="advance_ids">
+												<tree editable="bottom">
+														<field name="name"/>
+														<field name="employee_id"/>
+														<field name="date_added"/>
+														<field name="amount"/>
+														<field name="state" readonly="1"/>
+														<field name="currency_id" invisible="1"/>
+												</tree>
+										</field>
+								</sheet>
+								<div class="oe_chatter">
+										<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+										<field name="message_ids" widget="mail_thread"/>
+								</div>
+						</form>
+				</field>
+		</record>
+<!-- Advance Batches Tree view-->
+		<record id="ke_advance_batches_tree" model="ir.ui.view">
+				<field name="name">ke.advance.batches.tree</field>
+				<field name="model">ke.advance.run</field>
+				<field name="arch" type="xml">
+						<tree colors="blue: state == 'draft'; black: state == 'close';">
+								<field name="name"/>
+								<field name="date_start"/>
+								<field name="date_end"/>
+								<field name="state"/>
+						</tree>
+				</field>
+		</record>
+		<!-- salary advance batches Action-->
+		<record id="ke_advance_batches_action" model="ir.actions.act_window">
+				<field name="name">Salary Advance Batches</field>
+				<field name="res_model">ke.advance.run</field>
+				<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="ke_menu_advance_batches" parent="hr.menu_hr_root" name="Salary Advance Batches"/>
+		<menuitem id="ke_menu_advance_request_batches" parent="ke_menu_advance_batches" name="Salary Advance Batches" action="ke_advance_batches_action"/>
+		<!-- salary advance Action-->
+		<record id="ke_advance_action" model="ir.actions.act_window">
+				<field name="name">Salary Advance Request</field>
+				<field name="res_model">ke.advance</field>
+				<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="ke_menu_advance" parent="hr.menu_hr_root" name="Salary Advance" sequence="25"/>
+		<menuitem id="ke_menu_advance_request" parent="ke_menu_advance" name="Salary Advance Request" action="ke_advance_action"/>
+<!-- advance  Form view-->
+		<record id="ke_advance_form" model="ir.ui.view">
+				<field name="name">ke.advance.form</field>
+				<field name="model">ke.advance</field>
+				<field name="arch" type="xml">
+						<form>
+								<header>
+										<button string="Send for Approval" name="advance_approval" type="object" class="oe_highlight" attrs="{'invisible': ['|',('same_user', '!=', True), ('state', '!=', 'draft')]}"/>
+										<button string="Approve" name="advance_approved" type="object" class="oe_highlight" groups="hr_ke.group_sal_adv" attrs="{'invisible': ['|',('same_user', '!=', False), ('state', '!=', 'approval')]}"/>
+										<button string="Disapprove" name="advance_disapproved"  type="object" groups="hr_ke.group_sal_adv" class="oe_highlight" attrs="{'invisible': ['|',('same_user', '!=', False), ('state', '!=', 'approval')]}"/>
+										<button string="Reset to Draft" name="advance_reset" type="object" states="approval" class="oe_highlight"/>
+										<field name="state" widget="statusbar" statusbar_visible="draft,approval,approved,disapproved" statusbar_colors="{&quot;draft&quot;:&quot;blue&quot;,&quot;approval&quot;:&quot;blue&quot;,&quot;approved&quot;:&quot;green&quot;}"/>
+								</header>
+								<sheet>
+										<group>
+												<field name="name"/>
+										</group>
+										<group>
+												<group>
+														<field name="same_user" invisible="1"/>
+														<!--	<field name="same_dept" invisible="0"/> -->
+														<field name="employee_id" options="{'no_quick_create':True, 'no_open': True}"/>
+														<!--        <field name="amount"/> -->
+														<!--        <field name="dept_id"/> -->
+												</group>
+												<group>
+														<field name="date_added" options="{'no_quick_create':True, 'no_open': True}"/>
+														<!--       <field name="date_to"/> -->
+												</group>
+										</group>
+										<group>
+												<field name="amount"/>
+												<field name="currency_id" invisible="1"/>
+										</group>
+										<notebook>
+												<page string="Reasons For Salary Advance">
+														<field name="description"/>
+												</page>
+										</notebook>
+								</sheet>
+								<div class="oe_chatter">
+										<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+										<field name="message_ids" widget="mail_thread"/>
+								</div>
+						</form>
+				</field>
+		</record>
+<!-- Advance Tree view-->
+		<record id="ke_advance_tree" model="ir.ui.view">
+				<field name="name">ke.advance.tree</field>
+				<field name="model">ke.advance</field>
+				<field name="arch" type="xml">
+						<tree colors="blue: state == 'draft'; black: state == 'approval'; red: state == 'disapproved'">
+								<field name="name"/>
+								<field name="dept_id"/>
+								<field name="employee_id"/>
+								<field name="amount"/>
+								<field name="currency_id" invisible="1"/>
+								<field name="state"/>
+						</tree>
+				</field>
+		</record>
+
+	</data>
+</openerp>
+
