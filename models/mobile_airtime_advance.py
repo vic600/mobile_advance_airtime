@@ -10,6 +10,7 @@ class MobileAirtimeAdvance(models.Model):
     -description = "Mobile Airtime Advance"
     -inherit=["mail.thread"]
     -order="id desc"
+    
      @api.multi
     def _employee_get(self):
         return self.employee_id.search(
