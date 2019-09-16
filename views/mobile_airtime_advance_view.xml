@@ -4,7 +4,7 @@
 
 		<record id="mobile_advance_action" model="ir.actions.act_window">
 				<field name="name">Airtime Advance Request</field>
-				<field name="res_model">mobile.airtime</field>
+				<field name="res_model">ke.advance</field>
 				<field name="view_type">form</field>
 				<field name="view_mode">tree,form</field>
 		</record>
