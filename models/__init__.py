@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import mobile_airtime_advance
+from . import mobile_airtime
