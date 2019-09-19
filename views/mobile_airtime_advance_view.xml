@@ -1,78 +1,19 @@
-<openerp>
-		<data>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
 
+    <record id="view_partner_change_credit" model="ir.ui.view">
+        <field name="name">Controlling the Credit Limit for Partners</field>
+        <field name="model">mobile.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <group name="acc_sale" position="after">
+	            <group name="Credit" String="Credit Limit Control" >
+	                <field name="my_credit_limit"/>
+        	        <field name="my_credit_agent_change"/>
+		     </group>
+            </group>
+        </field>
+    </record>
 
-		<record id="mobile_advance_action" model="ir.actions.act_window">
-				<field name="name">Airtime Advance Request</field>
-				<field name="res_model">ke.advance</field>
-				<field name="view_type">form</field>
-				<field name="view_mode">tree,form</field>
-		</record>
-		<menuitem id="mobile_menu_advance" parent="hr.menu_hr_root" name="Airtime Advance" sequence="25"/>
-		<menuitem id="mobile_menu_advance_request" parent="mobile_menu_advance" name="Mobile Airtime Advance Request" action="mobile_advance_action"/>
-<!-- advance  Form view-->
-		<record id="mobile_advance_form" model="ir.ui.view">
-				<field name="name">mobile.advance.form</field>
-				<field name="model">mobile.airtime</field>
-				<field name="arch" type="xml">
-						<form>
-								<header>
-										<button string="Send for Approval" name="advance_approval" type="object" class="oe_highlight" attrs="{'invisible': ['|',('same_user', '!=', True), ('state', '!=', 'draft')]}"/>
-										<button string="Approve" name="advance_approved" type="object" class="oe_highlight" groups="hr_ke.group_sal_adv" attrs="{'invisible': ['|',('same_user', '!=', False), ('state', '!=', 'approval')]}"/>
-										<button string="Disapprove" name="advance_disapproved"  type="object" groups="hr_ke.group_sal_adv" class="oe_highlight" attrs="{'invisible': ['|',('same_user', '!=', False), ('state', '!=', 'approval')]}"/>
-										<button string="Reset to Draft" name="advance_reset" type="object" states="approval" class="oe_highlight"/>
-										<field name="state" widget="statusbar" statusbar_visible="draft,approval,approved,disapproved" statusbar_colors="{&quot;draft&quot;:&quot;blue&quot;,&quot;approval&quot;:&quot;blue&quot;,&quot;approved&quot;:&quot;green&quot;}"/>
-								</header>
-								<sheet>
-										<group>
-												<field name="name"/>
-										</group>
-										<group>
-												<group>
-														<field name="same_user" invisible="1"/>
-														<!--	<field name="same_dept" invisible="0"/> -->
-														<field name="employee_id" options="{'no_quick_create':True, 'no_open': True}"/>
-														<!--        <field name="amount"/> -->
-														<!--        <field name="dept_id"/> -->
-												</group>
-												<group>
-														<!-- <field name="date_added" options="{'no_quick_create':True, 'no_open': True}"/> -->
-														      <!-- <field name="date_to"/> -->
-												</group>
-										</group>
-										<group>
-												<field name="amount"/>
-												<field name="currency_id" invisible="1"/>
-										</group>
-										<notebook>
-												<page string="Reasons For Airtime Advance">
-														<field name="description"/>
-												</page>
-										</notebook>
-								</sheet>
-								<div class="oe_chatter">
-										<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
-										<field name="message_ids" widget="mail_thread"/>
-								</div>
-						</form>
-				</field>
-		</record>
-<!-- Advance Tree view-->
-		<record id="mobile_advance_tree" model="ir.ui.view">
-				<field name="name">mobile.advance.tree</field>
-				<field name="model">mobile.airtime</field>
-				<field name="arch" type="xml">
-						<tree colors="blue: state == 'draft'; black: state == 'approval'; red: state == 'disapproved'">
-								<field name="name"/>
-								<field name="dept_id"/>
-								<field name="employee_id"/>
-								<field name="amount"/>
-								<field name="currency_id" invisible="1"/>
-								<field name="state"/>
-						</tree>
-				</field>
-		</record>
-
-	</data>
-</openerp>
-
+</odoo>
