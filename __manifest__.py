@@ -10,7 +10,7 @@
     'version': '10.0.2',   
     'depends': ['base'],
     'data': [
-        'views/mobile_airtime_advance_view.xml',
+        
     ],
     'installable': True,
     'auto_install': False,
