@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-
-<menuitem id="ke_menu_advance" parent="hr.menu_hr_root" name="Mobile Airtime" sequence="25"/>
-<menuitem id="ke_menu_advance_request" parent="ke_menu_advance" name="Mobile Airtime Request" action="ke_advance_action"/>
-
-	<record id="ke_advance_form" model="ir.ui.view">
-				<field name="name">ke.advance.form</field>
-				<field name="model">ke.advance</field>
+<record id="mobile_advance_form" model="ir.ui.view">
+				<field name="name">mobile.advance.form</field>
+				<field name="model">mobile.airtime</field>
 				<field name="arch" type="xml">
 						<form>
 								<header>
@@ -51,4 +47,8 @@
 						</form>
 				</field>
 		</record>
+<menuitem id="mobile_menu_advance" parent="hr.menu_hr_root" name="Mobile Airtime" sequence="25"/>
+<menuitem id="mobile_menu_advance_request" parent="mobile_menu_advance" name="Mobile Airtime Request" action="mobile_advance_form"/>
+
+	
 </odoo>
