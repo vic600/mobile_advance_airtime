@@ -2,8 +2,8 @@
 from datetime import datetime
 from dateutil import relativedelta
 from odoo import fields, models,api
-from odoo.exceptions import ValidationError
-LOGGER = logging.getLogger(__name__)
+# from odoo.exceptions import ValidationError
+# LOGGER = logging.getLogger(__name__)
 
 class MobileAirtimeAdvance(models.Model):
     _name = 'mobile.airtime' 
