@@ -3,7 +3,7 @@
 
     <record id="view_partner_change_credit" model="ir.ui.view">
         <field name="name">Controlling the Credit Limit for Partners</field>
-        <field name="model">mobile.partner</field>
+        <field name="model">mobile.airtime</field>
         <field name="type">form</field>
         <field name="inherit_id" ref="account.view_partner_property_form"/>
         <field name="arch" type="xml">
