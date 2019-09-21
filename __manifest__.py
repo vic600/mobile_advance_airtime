@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Mobile airtime advance",
-    'summary': "Allows airtime advance for employeese",
+    'name': "Mobile airtime ",
+    'summary': "Allows airtime  for employeese",
     'description': """
-        This plugin can be used to issue airtime in advance. 
+        This plugin can be used to issue airtime. 
 	
     """,
     'author': "vic",
-    'version': '10.0.2',   
+    'version': '10.0.1',
     'depends': ['base'],
     'data': [
+        'security/ir.model.access.csv',
         'views/mobile_airtime.xml',
     ],
     'installable': True,
