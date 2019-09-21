@@ -78,6 +78,8 @@ class MobileAirtimeAdvance(models.Model):
 date_added = fields.Datetime('Date Requested')
 same_user = fields.Boolean(compute='check_login_user')
 
-currency_id = fields.Many2one(
-    related='employee_id.company_id.currency_id',
-    track_visibility='onchange')
+# currency_id = fields.Many2one(
+#     related='employee_id.company_id.currency_id',
+#     track_visibility='onchange')
+currency_id = fields.Many2one('res.company', string="Company",
+                             default=lambda self: self.env['res.company_id.currency_id'].search([]))
