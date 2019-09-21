@@ -56,7 +56,7 @@
 				</field>
 		</record> -->
 <!-- Advance Tree view-->
-		<!-- <record id="mobile_airtime_tree" model="ir.ui.view">
+		<record id="mobile_airtime_tree" model="ir.ui.view">
 				<field name="name">mobile.airtime.tree</field>
 				<field name="model">mobile.airtime</field>
 				<field name="arch" type="xml">
@@ -69,7 +69,7 @@
 								<field name="state"/>
 						</tree>
 				</field>
-		</record> -->
+		</record>
 
 
 	</data>
