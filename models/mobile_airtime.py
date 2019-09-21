@@ -22,7 +22,7 @@ class MobileAirtimeAdvance(models.Model):
         """ set boolean value based on login user """
         for record in self:
             record.same_user = bool(record.env.user.id == record.user_id.id)
-
+            
      name = fields.Char(
         'Request details',
         required=True,
@@ -39,7 +39,6 @@ class MobileAirtimeAdvance(models.Model):
         'Department',
         track_visibility='always',
         related='employee_id.department_id')
-
     employee_id = fields.Many2one(
         'hr.employee',
         'Employee Name',
