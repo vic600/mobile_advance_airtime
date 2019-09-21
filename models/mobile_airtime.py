@@ -76,7 +76,6 @@ class MobileAirtimeAdvance(models.Model):
             'draft': [
                 ('readonly',
                  False)]}, track_visibility='onchange')
-
-
 date_added = fields.Datetime('Date Requested')
 same_user = fields.Boolean(compute='check_login_user')
+
