@@ -59,9 +59,12 @@ class MobileAirtimeAdvance(models.Model):
                                'Dis-approved')],
                              'Status',
                              default='draft', track_visibility='onchange')
+    currency_id = fields.Many2one(
+        related='employee_id.company_id.currency_id',
+        track_visibility='onchange')
     amount = fields.Monetary(
         'Amount',
-      
+        currency_field='currency_id',
         track_visibility='onchange', readonly=True, states={
             'draft': [
                 ('readonly',
@@ -77,7 +80,3 @@ class MobileAirtimeAdvance(models.Model):
 
 date_added = fields.Datetime('Date Requested')
 same_user = fields.Boolean(compute='check_login_user')
-
-currency_id = fields.Many2one(
-    related='employee_id.company_id.currency_id',
-    track_visibility='onchange')

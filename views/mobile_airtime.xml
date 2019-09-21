@@ -39,8 +39,8 @@
 												</group>
 										</group>
 										<group>
-												<!-- <field name="amount"/> -->
-												<!-- <field name="currency_id" invisible="1"/> -->
+												<field name="amount"/>
+												<field name="currency_id" invisible="1"/>
 										</group>
 										<notebook>
 												<page string="Reasons For  Airtime">
@@ -64,8 +64,8 @@
 								<field name="name"/>
 								<field name="dept_id"/>
 								<field name="employee_id"/>
-								<!-- <field name="amount"/> -->
-								<!-- <field name="currency_id" invisible="1"/> -->
+								<field name="amount"/>
+								<field name="currency_id" invisible="1"/>
 								<field name="state"/>
 						</tree>
 				</field>
