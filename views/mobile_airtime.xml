@@ -10,7 +10,7 @@
 		<menuitem id="airtime_menu" parent="hr.menu_hr_root" name="Mobile Airtime" sequence="25"/>
 		<menuitem id="airtime_advance_menu" parent="airtime_menu" name="Mobile Airtime Request" action="mobile_airtime_action"/>
 <!-- advance  Form view-->
-		<record id="airtime_form" model="ir.ui.view">
+		<record id="airtime_advance_form" model="ir.ui.view">
 				<field name="name">mobile airtime form</field>
 				<field name="model">mobile.airtime</field>
 				<field name="arch" type="xml">
