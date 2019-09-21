@@ -43,7 +43,7 @@
 												<field name="currency_id" invisible="1"/>
 										</group>
 										<notebook>
-												<page string="Reasons For Salary Advance">
+												<page string="Reasons For  Airtime">
 														<field name="description"/>
 												</page>
 										</notebook>
