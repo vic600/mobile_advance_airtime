@@ -61,7 +61,7 @@ class MobileAirtimeAdvance(models.Model):
                              default='draft', track_visibility='onchange')
     amount = fields.Monetary(
         'Amount',
-        currency_field='currency_id',
+        # currency_field='currency_id',
         track_visibility='onchange', readonly=True, states={
             'draft': [
                 ('readonly',
