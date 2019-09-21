@@ -22,6 +22,7 @@ class MobileAirtimeAdvance(models.Model):
         """ set boolean value based on login user """
         for record in self:
             record.same_user = bool(record.env.user.id == record.user_id.id)
+            
      name = fields.Char(
         'Request details',
         required=True,
