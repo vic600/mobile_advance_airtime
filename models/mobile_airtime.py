@@ -8,9 +8,9 @@ from odoo.exceptions import ValidationError
 
 class MobileAirtimeAdvance(models.Model):
     _name = 'mobile.airtime'
-    -description = "Mobile Airtime"
-    -inherit = ["mail.thread"]
-    -order = "id desc"
+    _description = "Mobile Airtime"
+    _inherit = ["mail.thread"]
+    _order = "id desc"
 
     @api.multi
     def _employee_get(self):
