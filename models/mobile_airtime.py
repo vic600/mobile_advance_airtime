@@ -29,6 +29,7 @@ class MobileAirtimeAdvance(models.Model):
         readonly=True,
     )
     same_user = fields.Boolean(compute='check_login_user')
+    date_added = fields.Datetime('Date Requested')
     dept_id = fields.Many2one(
         'hr.department',
         'Department',
@@ -77,4 +78,3 @@ class MobileAirtimeAdvance(models.Model):
             'draft': [
                 ('readonly',
                  False)]}, track_visibility='onchange')
-date_added = fields.Datetime('Date Requested')
