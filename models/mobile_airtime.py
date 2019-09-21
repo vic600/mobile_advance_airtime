@@ -23,11 +23,15 @@ class MobileAirtimeAdvance(models.Model):
         for record in self:
             record.same_user = bool(record.env.user.id == record.user_id.id)
 
-    name = fields.Char(
+     name = fields.Char(
         'Request details',
         required=True,
         readonly=True,
-    )
+        track_visibility='onchange',
+        states={
+            'draft': [
+                ('readonly',
+                 False)]})
     same_user = fields.Boolean(compute='check_login_user')
     date_added = fields.Datetime('Date Requested')
     dept_id = fields.Many2one(
