@@ -108,7 +108,7 @@ class MobileAirtimeAdvance(models.Model):
             record.write({'state': 'approved'})
 
     @api.multi
-     def advance_disapproved(self):
+    def advance_disapproved(self):
         """ disapproves a salary advance request """
         for record in self:
             record.write({'state': 'disapproved'})
