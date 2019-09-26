@@ -82,9 +82,8 @@ class MobileAirtimeAdvance(models.Model):
             'draft': [
                 ('readonly',
                  False)]}, track_visibility='onchange')
-
    @api.multi
-    def advance_approval(self):
+   def advance_approval(self):
         """ sets the draft salary advance request to waiting approval"""
         for record in self:
             if not record.employee_id:
@@ -101,9 +100,9 @@ class MobileAirtimeAdvance(models.Model):
                 record.message_subscribe_users(
                     user_ids=[record.employee_id.parent_id.user_id.id])
                 return record.write({'state': 'approval'})
-                
+
     @api.multi
-     def advance_approved(self):
+    def advance_approved(self):
         """ approves a salary advance request """
         for record in self:
             record.write({'state': 'approved'})
@@ -115,7 +114,7 @@ class MobileAirtimeAdvance(models.Model):
             record.write({'state': 'disapproved'})
 
     @api.multi
-     def advance_reset(self):
+    def advance_reset(self):
         """ resets a salary adanve request currently waiting approval"""
         for record in self:
             record.write({'state': 'draft'})
