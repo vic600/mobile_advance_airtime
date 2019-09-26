@@ -82,8 +82,8 @@ class MobileAirtimeAdvance(models.Model):
             'draft': [
                 ('readonly',
                  False)]}, track_visibility='onchange')
-   @api.multi
-   def advance_approval(self):
+    @api.multi
+    def advance_approval(self):
         """ sets the draft salary advance request to waiting approval"""
         for record in self:
             if not record.employee_id:
