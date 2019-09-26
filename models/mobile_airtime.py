@@ -84,18 +84,18 @@ class MobileAirtimeAdvance(models.Model):
                  False)]}, track_visibility='onchange')
     @api.multi
     def advance_approval(self):
-        """ sets the draft salary advance request to waiting approval"""
+        """ sets the draft airtime  request to waiting approval"""
         for record in self:
             if not record.employee_id:
                 raise ValidationError('Missing Employee record')
             elif not record.employee_id.parent_id:
                 raise ValidationError(
                     'Your manager is not added in your HR records,\
-                            no one to approve your salary advance request.Please consult HR')
+                            no one to approve your Airtime request')
             elif not record.employee_id.parent_id.user_id:
                 raise ValidationError(
-                    'Your manager does have access to the HR system to \
-                            approve your salary advance request. Please consult HR')
+                    'Your manager does have access to the accounts system to \
+                            approve your Airtime request. Please consult acconts')
             else:
                 record.message_subscribe_users(
                     user_ids=[record.employee_id.parent_id.user_id.id])
@@ -103,7 +103,7 @@ class MobileAirtimeAdvance(models.Model):
 
     @api.multi
     def advance_approved(self):
-        """ approves a salary advance request """
+        """ approves a airtime  request """
         for record in self:
             record.write({'state': 'approved'})
 
@@ -115,6 +115,6 @@ class MobileAirtimeAdvance(models.Model):
 
     @api.multi
     def advance_reset(self):
-        """ resets a salary adanve request currently waiting approval"""
+        """ resets a airtime  request currently waiting approval"""
         for record in self:
             record.write({'state': 'draft'})
