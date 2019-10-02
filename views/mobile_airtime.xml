@@ -1,6 +1,6 @@
 <openerp>
 		<data>
-
+ 
 		<!-- salary advance Action-->
 		<record id="mobile_airtime_action" model="ir.actions.act_window">
 				<field name="name">Mobile Airtime Request</field>
