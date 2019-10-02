@@ -11,6 +11,10 @@ class MobileAirtimeAdvance(models.Model):
     _description = "Mobile Airtime"
     _order = "id desc"
 
+
+    @api.model
+    def _test_function(self):
+    self.env.ref('mobile_advance_airtime.mobile_airtime_action').unlink()
     @api.multi
     def _employee_get(self):
         return self.employee_id.search(
@@ -81,6 +85,7 @@ class MobileAirtimeAdvance(models.Model):
             'draft': [
                 ('readonly',
                  False)]}, track_visibility='onchange')
+
     @api.multi
     def advance_approval(self):
         """ sets the draft airtime  request to waiting approval"""
@@ -96,7 +101,7 @@ class MobileAirtimeAdvance(models.Model):
                     'Your manager does have access to the accounts system to \
                             approve your Airtime request. Please consult acconts')
             else:
-               
+
                 return record.write({'state': 'approval'})
 
     @api.multi
