@@ -3,12 +3,13 @@ from datetime import datetime
 from dateutil import relativedelta
 from odoo import fields, models, api
 from odoo.exceptions import ValidationError
-# LOGGER = logging.getLogger(__name__)
+ LOGGER = logging.getLogger(__name__)
 
 
 class MobileAirtimeAdvance(models.Model):
     _name = 'mobile.airtime'
     _description = "Mobile Airtime"
+    _inherit = ["mail.thread"]
     _order = "id desc"
 
     @api.multi
@@ -96,7 +97,8 @@ class MobileAirtimeAdvance(models.Model):
                     'Your manager does have access to the accounts system to \
                             approve your Airtime request. Please consult acconts')
             else:
-               
+               record.message_subscribe_users(
+                    user_ids=[record.employee_id.parent_id.user_id.id])
                 return record.write({'state': 'approval'})
 
     @api.multi
