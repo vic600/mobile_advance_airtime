@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_mobile_airtime,access_mobile_airtmie,model_mobile_airtime,base.group_user,1,1,1,0
+access_ke_advance,access_ke_advance,model_ke_advance,base.group_user,1,1,1,0
