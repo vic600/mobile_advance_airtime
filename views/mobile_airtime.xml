@@ -17,8 +17,8 @@
 						<form>
 								<header>
 										<button string="Send for Approval" name="advance_approval" type="object" class="oe_highlight" attrs="{'invisible': ['|',('same_user', '!=', True), ('state', '!=', 'draft')]}"/>
-										<button string="Approve" name="advance_approved" type="object" class="oe_highlight"  attrs="{'invisible': ['|',('same_user', '!=', False), ('state', '!=', 'approval')]}"/>
-										<button string="Disapprove" name="advance_disapproved"  type="object" class="oe_highlight" attrs="{'invisible': ['|',('same_user', '!=', False), ('state', '!=', 'approval')]}"/>
+										<button string="Approve" name="advance_approved" type="object" class="oe_highlight"  attrs="{'invisible': ['|',('same_user', '!=', False), ('state', '==', 'approval')]}"/>
+										<button string="Disapprove" name="advance_disapproved"  type="object" class="oe_highlight" attrs="{'invisible': ['|',('same_user', '!=', False), ('state', '==', 'approval')]}"/>
 										<button string="Reset to Draft" name="advance_reset" type="object" states="approval" class="oe_highlight"/>
 										<field name="state" widget="statusbar" statusbar_visible="draft,approval,approved,disapproved" statusbar_colors="{&quot;draft&quot;:&quot;blue&quot;,&quot;approval&quot;:&quot;blue&quot;,&quot;approved&quot;:&quot;green&quot;}"/>
 								</header>
